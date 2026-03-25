@@ -1,33 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+    </style>
 
     <title>Attrition Analytics</title>
   </head>
 
-  <body class="bg-gray-100 text-gray-800">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md">
-      <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <h1 class="text-xl font-bold text-blue-600">Attrition Analytics</h1>
+  <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm relative">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="bg-blue-600 text-white p-2 rounded-lg group-hover:bg-blue-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+            Attrition Analytics
+          </h1>
+        </a>
 
-        <div class="space-x-6 font-medium">
-          <a href="/" class="hover:text-blue-600">Home</a>
-          <a href="/dashboard" class="hover:text-blue-600">Dashboard</a>
-          <a href="/predict" class="hover:text-blue-600">Predict</a>
+        <div class="hidden md:flex space-x-8 font-medium text-slate-600">
+          <a href="/" class="hover:text-blue-600 transition duration-200">Home</a>
+          <a href="/dashboard" class="hover:text-blue-600 transition duration-200">Dashboard</a>
+          <a href="/predict" class="hover:text-blue-600 transition duration-200">Predict</a>
+        </div>
+
+        <button id="mobile-menu-button" class="md:hidden text-slate-600 hover:text-blue-600 focus:outline-none p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 absolute w-full left-0 shadow-lg">
+        <div class="flex flex-col px-6 py-4 space-y-4 font-medium text-slate-600">
+          <a href="/" class="hover:text-blue-600 transition duration-200 block">Home</a>
+          <a href="/dashboard" class="hover:text-blue-600 transition duration-200 block">Dashboard</a>
+          <a href="/predict" class="hover:text-blue-600 transition duration-200 block">Predict</a>
         </div>
       </div>
     </nav>
 
-    <!-- Content -->
-    <div class="container mx-auto px-6 py-8">
+    <main class="container mx-auto px-6 py-10 flex-grow">
       {% block content %} {% endblock %}
-    </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-auto">
+      <div class="container mx-auto px-6 py-6 text-center text-sm text-slate-500">
+        &copy; 2026 Employee Attrition Analytics. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    </script>
   </body>
 </html>

@@ -1,18 +1,23 @@
 {% extends "base.html" %} {% block content %}
 
-<h1 class="text-3xl font-bold mb-6">Dashboard Analisis Attrition</h1>
+<div class="mb-8">
+  <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-2">Dashboard Analisis</h1>
+  <p class="text-slate-500">Pantau metrik dan tren attrition karyawan secara real-time.</p>
+</div>
 
-<div class="bg-white rounded-xl shadow p-4">
-  <iframe
-    class="w-full rounded-lg"
-    height="750"
-    src="https://lookerstudio.google.com/embed/reporting/5701230a-d17d-4f7d-914d-ed3f1873b269/page/0T3qF"
-    frameborder="0"
-    style="border: 0"
-    allowfullscreen
-    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-  >
-  </iframe>
+<div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 p-2 md:p-4">
+  <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+    <iframe
+      class="w-full"
+      height="800"
+      src="https://lookerstudio.google.com/embed/reporting/5701230a-d17d-4f7d-914d-ed3f1873b269/page/0T3qF"
+      frameborder="0"
+      style="border: 0"
+      allowfullscreen
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+    >
+    </iframe>
+  </div>
 </div>
 
 {% endblock %}
