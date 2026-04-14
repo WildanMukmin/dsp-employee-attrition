@@ -3,3 +3,7 @@ pandas
 scikit-learn
 numpy
 gunicorn
+mlflow
+dagshub
+python-dotenv
+joblib
